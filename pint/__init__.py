@@ -100,7 +100,7 @@ def set_application_registry(registry):
     ----------
     registry : pint.UnitRegistry
     """
-    application_registry.set(registry)
+    return application_registry.set(registry)
 
 
 def get_application_registry():
