@@ -2325,6 +2325,14 @@ class LazyRegistry:
         return self(*args, **kwargs)
 
 
+@contextmanager
+def execute_on_exit(callback):
+    try:
+        yield
+    finally:
+        callback()
+
+
 class ApplicationRegistry:
     """A wrapper class used to distribute changes to the application registry."""
 
@@ -2355,7 +2363,11 @@ class ApplicationRegistry:
         logger.debug(
             "Changing app registry from %r to %r.", self._registry, new_registry
         )
+        restore = execute_on_exit(functools.partial(self.set, self._registry))
+
         self._registry = new_registry
+
+        return restore
 
     def __getattr__(self, name):
         return getattr(self._registry, name)
