@@ -1148,8 +1148,8 @@ class TestOffsetUnitMath(QuantityTestCase):
         (q1v, q1u), (q2v, q2u) = input_tuple
         # update input tuple with new values to have correct values on failure
         input_tuple = (
-            (np.array([q1v] * 2, dtype=np.float), q1u),
-            (np.array([q2v] * 2, dtype=np.float), q2u),
+            (np.array([q1v] * 2, dtype=float), q1u),
+            (np.array([q2v] * 2, dtype=float), q2u),
         )
         Q_ = self.Q_
         qin1, qin2 = input_tuple
@@ -1159,7 +1159,7 @@ class TestOffsetUnitMath(QuantityTestCase):
             with pytest.raises(OffsetUnitCalculusError):
                 op.iadd(q1_cp, q2)
         else:
-            expected = np.array([expected[0]] * 2, dtype=np.float), expected[1]
+            expected = np.array([expected[0]] * 2, dtype=float), expected[1]
             assert op.iadd(q1_cp, q2).units == Q_(*expected).units
             q1_cp = copy.copy(q1)
             helpers.assert_quantity_almost_equal(
@@ -1227,8 +1227,8 @@ class TestOffsetUnitMath(QuantityTestCase):
         (q1v, q1u), (q2v, q2u) = input_tuple
         # update input tuple with new values to have correct values on failure
         input_tuple = (
-            (np.array([q1v] * 2, dtype=np.float), q1u),
-            (np.array([q2v] * 2, dtype=np.float), q2u),
+            (np.array([q1v] * 2, dtype=float), q1u),
+            (np.array([q2v] * 2, dtype=float), q2u),
         )
         Q_ = self.Q_
         qin1, qin2 = input_tuple
@@ -1238,7 +1238,7 @@ class TestOffsetUnitMath(QuantityTestCase):
             with pytest.raises(OffsetUnitCalculusError):
                 op.isub(q1_cp, q2)
         else:
-            expected = np.array([expected[0]] * 2, dtype=np.float), expected[1]
+            expected = np.array([expected[0]] * 2, dtype=float), expected[1]
             assert op.isub(q1_cp, q2).units == Q_(*expected).units
             q1_cp = copy.copy(q1)
             helpers.assert_quantity_almost_equal(
@@ -1305,8 +1305,8 @@ class TestOffsetUnitMath(QuantityTestCase):
         (q1v, q1u), (q2v, q2u) = input_tuple
         # update input tuple with new values to have correct values on failure
         input_tuple = (
-            (np.array([q1v] * 2, dtype=np.float), q1u),
-            (np.array([q2v] * 2, dtype=np.float), q2u),
+            (np.array([q1v] * 2, dtype=float), q1u),
+            (np.array([q2v] * 2, dtype=float), q2u),
         )
         Q_ = self.Q_
         qin1, qin2 = input_tuple
@@ -1316,7 +1316,7 @@ class TestOffsetUnitMath(QuantityTestCase):
             with pytest.raises(OffsetUnitCalculusError):
                 op.imul(q1_cp, q2)
         else:
-            expected = np.array([expected[0]] * 2, dtype=np.float), expected[1]
+            expected = np.array([expected[0]] * 2, dtype=float), expected[1]
             assert op.imul(q1_cp, q2).units == Q_(*expected).units
             q1_cp = copy.copy(q1)
             helpers.assert_quantity_almost_equal(
@@ -1385,8 +1385,8 @@ class TestOffsetUnitMath(QuantityTestCase):
         (q1v, q1u), (q2v, q2u) = input_tuple
         # update input tuple with new values to have correct values on failure
         input_tuple = (
-            (np.array([q1v] * 2, dtype=np.float), q1u),
-            (np.array([q2v] * 2, dtype=np.float), q2u),
+            (np.array([q1v] * 2, dtype=float), q1u),
+            (np.array([q2v] * 2, dtype=float), q2u),
         )
         Q_ = self.Q_
         qin1, qin2 = input_tuple
@@ -1396,7 +1396,7 @@ class TestOffsetUnitMath(QuantityTestCase):
             with pytest.raises(OffsetUnitCalculusError):
                 op.itruediv(q1_cp, q2)
         else:
-            expected = np.array([expected[0]] * 2, dtype=np.float), expected[1]
+            expected = np.array([expected[0]] * 2, dtype=float), expected[1]
             assert op.itruediv(q1_cp, q2).units == Q_(*expected).units
             q1_cp = copy.copy(q1)
             helpers.assert_quantity_almost_equal(
@@ -1451,8 +1451,8 @@ class TestOffsetUnitMath(QuantityTestCase):
         (q1v, q1u), (q2v, q2u) = input_tuple
         # update input tuple with new values to have correct values on failure
         input_tuple = (
-            (np.array([q1v] * 2, dtype=np.float), q1u),
-            (np.array([q2v] * 2, dtype=np.float), q2u),
+            (np.array([q1v] * 2, dtype=float), q1u),
+            (np.array([q2v] * 2, dtype=float), q2u),
         )
         Q_ = self.Q_
         qin1, qin2 = input_tuple
@@ -1462,7 +1462,7 @@ class TestOffsetUnitMath(QuantityTestCase):
             with pytest.raises(OffsetUnitCalculusError):
                 op.imul(q1_cp, q2)
         else:
-            expected = np.array([expected[0]] * 2, dtype=np.float), expected[1]
+            expected = np.array([expected[0]] * 2, dtype=float), expected[1]
             assert op.imul(q1_cp, q2).units == Q_(*expected).units
             q1_cp = copy.copy(q1)
             helpers.assert_quantity_almost_equal(
@@ -1591,7 +1591,7 @@ class TestOffsetUnitMath(QuantityTestCase):
         in1, in2 = input_tuple
         if type(in1) is tuple and type(in2) is tuple:
             (q1v, q1u), (q2v, q2u) = in1, in2
-            in1 = self.Q_(*(np.array([q1v] * 2, dtype=np.float), q1u))
+            in1 = self.Q_(*(np.array([q1v] * 2, dtype=float), q1u))
             in2 = self.Q_(q2v, q2u)
         elif not type(in1) is tuple and type(in2) is tuple:
             in2 = self.Q_(*in2)
@@ -1610,12 +1610,12 @@ class TestOffsetUnitMath(QuantityTestCase):
             else:
                 if type(expected_copy[i]) is tuple:
                     expected = self.Q_(
-                        np.array([expected_copy[i][0]] * 2, dtype=np.float),
+                        np.array([expected_copy[i][0]] * 2, dtype=float),
                         expected_copy[i][1],
                     )
                     assert op.ipow(in1_cp, in2).units == expected.units
                 else:
-                    expected = np.array([expected_copy[i]] * 2, dtype=np.float)
+                    expected = np.array([expected_copy[i]] * 2, dtype=float)
 
                 in1_cp = copy.copy(in1)
                 helpers.assert_quantity_almost_equal(op.ipow(in1_cp, in2), expected)
