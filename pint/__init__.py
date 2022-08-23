@@ -111,7 +111,7 @@ def get_application_registry():
 
     Returns
     -------
-    pint.UnitRegistry
+    pint.ApplicationRegistry
     """
     return application_registry
 
