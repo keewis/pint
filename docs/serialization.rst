@@ -60,7 +60,8 @@ further.
 If your application needs a single, global registry with custom definitions, you must
 make sure that it is registered using :func:`pint.set_application_registry` before
 unpickling anything. You may use :func:`pint.get_application_registry` to get the
-current instance of the application registry.
+current instance of the application registry (use :py:meth:`ApplicationRegistry.get`
+to get the wrapped :py:class:`UnitRegistry` instance).
 
 Finally, if you need multiple custom registries, it's impossible to correctly unpickle
 :class:`pint.Quantity` or :class:`pint.Unit` objects.The best way is to create a tuple
